@@ -1,25 +1,44 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input data siswa
+        System.out.print("Masukkan nama siswa: ");
+        String nama = scanner.nextLine();
+
+        System.out.print("Masukkan usia siswa: ");
+        int usia = scanner.nextInt();
+
+        System.out.print("Masukkan nilai siswa: ");
+        double nilai = scanner.nextDouble();
+
         // Membuat objek Siswa
-        Siswa siswa1 = new Siswa("Budi", 15, 85.5);
-        
-        // Menampilkan informasi siswa
-        System.out.println("Nama: " + siswa1.getNama());
-        System.out.println("Usia: " + siswa1.getUsia());
-        System.out.println("Nilai: " + siswa1.getNilai());
+        Siswa siswa = new Siswa(nama, usia, nilai);
 
-        // Mengubah usia dan nilai
-        siswa1.setUsia(17);
-        siswa1.setNilai(90.0);
+        // Menampilkan data siswa
+        System.out.println("Data Siswa:");
+        System.out.println("Nama: " + siswa.getNama());
+        System.out.println("Usia: " + siswa.getUsia());
+        System.out.println("Nilai: " + siswa.getNilai());
 
-        // Menampilkan informasi siswa setelah diubah
-        System.out.println("\nSetelah diubah:");
-        System.out.println("Nama: " + siswa1.getNama());
-        System.out.println("Usia: " + siswa1.getUsia());
-        System.out.println("Nilai: " + siswa1.getNilai());
+        // Mengubah usia
+        System.out.print("Ubah usia siswa: ");
+        int usiaBaru = scanner.nextInt();
+        siswa.setUsia(usiaBaru);
 
-        // Menguji validasi
-        siswa1.setUsia(-5); // Usia tidak valid
-        siswa1.setNilai(105); // Nilai tidak valid
+        // Mengubah nilai
+        System.out.print("Ubah nilai siswa: ");
+        double nilaiBaru = scanner.nextDouble();
+        siswa.setNilai(nilaiBaru);
+
+        // Menampilkan data siswa yang telah diubah
+        System.out.println("Data Siswa Setelah Diubah:");
+        System.out.println("Nama: " + siswa.getNama());
+        System.out.println("Usia: " + siswa.getUsia());
+        System.out.println("Nilai: " + siswa.getNilai());
+
+        scanner.close();
     }
 }
